@@ -55,6 +55,18 @@ def viewCont(name):
             return row
 
 
+def viewAll():
+    database = "sqlite.db"
+
+    conn = create_connection(database)
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM Contestant;")
+
+    rows = cur.fetchall()
+    
+    return rows
+
+
 
 # def addUser(name, phone, idCount=idCount):
     # db = open("database.txt", "a")

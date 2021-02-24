@@ -1,13 +1,13 @@
 from flask import Flask, render_template, request
-from db import addCont,viewCont
+from db import addCont,viewCont, viewAll
 import sqlite3
 app = Flask(__name__)
 
 
 @app.route('/')
 def viewContestants():
-    return viewCont("testin")
-
+    return render_template("viewAllContestants.html", viewAll = viewAll(), viewLen=len(viewAll()))
+    
 @app.route('/add', methods=['GET', 'POST'])
 def addContestants():
     if request.method == "POST":
